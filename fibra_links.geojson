@@ -1,19 +1,19 @@
-import json
-
-def gerar_geojson(nome, coord1, coord2):
-    return {
-        "type": "Feature",
-        "properties": { "name": nome, "status": "ok" },
-        "geometry": {
-            "type": "LineString",
-            "coordinates": [coord1, coord2]
-        }
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "POP A - POP B",
+        "status": "ok"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [ -38.5031, -3.7603 ],
+          [ -38.5299, -3.7932 ]
+        ]
+      }
     }
-
-rotas = [
-    gerar_geojson("POP A - POP B", [-38.5031, -3.7603], [-38.5299, -3.7932]),
-    gerar_geojson("POP B - POP C", [-38.5299, -3.7932], [-38.6011, -3.8101]),
-]
-
-with open("fibra_links.geojson", "w") as f:
-    json.dump({"type": "FeatureCollection", "features": rotas}, f, indent=2)
+  ]
+}
